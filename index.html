@@ -10,19 +10,14 @@
 
   <body>
     <div class="reveal">
-      <!--
-      <header>
-        <div style="position: absolute;bottom: 0px; left:0px; z-index:500;">
-          <img src="images/tuenti_logo.png" width="120px"/>
-        </div>
-      </header>
-      -->
-
       <div class="slides">
         <section>
           <h1>Monitorización y alertado</h1>
           <h2>
-            Miguel Ángel García Martínez
+            Miguel Ángel García <br />
+            <small>
+            <a href="http://magmax.org">http://magmax.org</a>
+            </small>
           </h2>
         </section>
 
@@ -55,17 +50,17 @@
           <h2>Programas</h2>
 
           <ul>
-            <li class="fragment"><b>Nagios, Pandora</b>: Sistema</li>
-            <li class="fragment"><b>Zabbix</b>: Sistema (monitorización)</li>
-            <li class="fragment"><b>Munin</b>: Sistema</li>
-            <li class="fragment"><b>New Relic</b>: SaaS (pago)</li>
-            <li class="fragment"><b>Graphite</b>: Monitorización</li>
-            <li class="fragment"><b>Sensu</b>: Alertados</li>
-            <li class="fragment"><b>Grafana</b>: IDE</li>
-            <li class="fragment"><b>FlapJack</b>: Enrutado de alertas</li>
-            <li class="fragment"><b>PagerDuty</b>: Enrutado de alertas (SaaS)</li>
-            <li class="fragment"><b>Sentry</b>: Agrupador de logs</li>
-            <li class="fragment"><b>RSyslog/Logstash/ElasticSearch</b>: Agrupación de logs de sistema</li>
+            <li class="fragment"><b><a href="https://www.nagios.org/">Nagios</a>, <a href="http://pandorafms.com/">Pandora</a></b>: Sistema</li>
+            <li class="fragment"><b><a href="http://www.zabbix.com/">Zabbix</a></b>: Sistema (monitorización)</li>
+            <li class="fragment"><b><a href="http://munin-monitoring.org/">Munin</a></b>: Sistema</li>
+            <li class="fragment"><b><a href="http://newrelic.com/">New Relic</a></b>: SaaS (pago)</li>
+            <li class="fragment"><b><a href="https://github.com/graphite-project/graphite-web">Graphite</a></b>: Monitorización</li>
+            <li class="fragment"><b><a href="http://grafana.org/">Grafana</a></b>: IDE</li>
+            <li class="fragment"><b><a href="https://sensuapp.org/">Sensu</a></b>: Alertados</li>
+            <li class="fragment"><b><a href="http://flapjack.io/">FlapJack</a></b>: Enrutado de alertas</li>
+            <li class="fragment"><b><a href="https://www.pagerduty.com/">PagerDuty</a></b>: Enrutado de alertas (SaaS)</li>
+            <li class="fragment"><b><a href="https://getsentry.com/welcome/">Sentry</a></b>: Agrupador de logs</li>
+            <li class="fragment"><b><a href="http://www.rsyslog.com/">RSyslog</a>/<a href="https://www.elastic.co/products/logstash">Logstash</a>/<a href="https://www.elastic.co/products/elasticsearch">ElasticSearch</a></b>: Agrupación de logs de sistema</li>
           </ul>
         </section>
 
@@ -89,6 +84,7 @@
             <li>Sencillo</li>
             <li>RRD</li>
             <li>Estático en /var/cache/munin/www</li>
+            <li>Ideal para monitorizar rápidamente el sistema</li>
           </ul>
 
           <pre>
@@ -109,6 +105,7 @@
             <li>API web</li>
             <li>Whisper (evolución de RRD</li>
             <li>Soporta eventos discretos</li>
+            <li>Permite graficar cualquier cosa basada en tiempo</li>
           </ul>
 
           <pre>
@@ -116,30 +113,57 @@
           </pre>
         </section>
 
+        <section data-background="images/graphite.png">
+        </section>
+
 
         <section>
           <h2>Grafana</h2>
 
           <ul>
+            <li>Go</li>
             <li>IDE para Graphite</li>
             <li>Muy muy molón y configurable</li>
           </ul>
         </section>
 
+        <section data-background="images/grafana.png">
+        </section>
+
         <section>
           <h2>Sensu</h2>
           <ul>
+            <li>Ruby</li>
+            <li>Comunicación mediante RabbitMQ</li>
+            <li>Solo backend. El frontend es Uchiwa.</li>
             <li>Solo alertas</li>
-            <li>Pero puede incluir gráficas de Graphite/Grafana</li>
+            <li>Pero se puede combinar con Graphite/Grafana</li>
           </ul>
+        </section>
+
+        <section data-background="images/uchiwa.png">
         </section>
 
         <section>
           <h2>Sentry</h2>
 
           <ul>
-            <li>API "Raven"</li>
-            <li>Ideal para configurar un <b>handler</b> del <b>logger</b>. </li>
+            <li>Python/Django</li>
+            <li>API Rest accesible con la librería "Raven"</li>
+            <li>Monitorización de aplicaciones, ya que agrupa logs</li>
+            <li>Lo ideal es configurar un <b>handler</b> del <b>logger</b>. </li>
+          </ul>
+        </section>
+
+        <section data-background="images/sentry.png">
+        </section>
+
+        <section>
+          <h2>Créditos</h2>
+          <ul>
+            <li>Miguel Ángel García</li>
+            <li>Twitter: <a href="https://twitter.com/magmax9">@magmax9</a> </li>
+            <li>Blog: <a href="http://magmax.org">http://magmax.org</a> </li>
           </ul>
         </section>
 
