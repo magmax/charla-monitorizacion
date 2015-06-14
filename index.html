@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Project life cicle in the own repository</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="lib/highlight/src/styles/solarized_dark.css" id="theme"/>
+    <link rel="stylesheet" href="lib/reveal.js/css/reveal.css"/>
+    <link rel="stylesheet" href="lib/reveal.js/css/theme/moon.css" id="theme"/>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <!--
+      <header>
+        <div style="position: absolute;bottom: 0px; left:0px; z-index:500;">
+          <img src="images/tuenti_logo.png" width="120px"/>
+        </div>
+      </header>
+      -->
+
+      <div class="slides">
+        <section>
+          <h1>Monitorización y alertado</h1>
+          <h2>
+            Miguel Ángel García Martínez
+          </h2>
+        </section>
+
+        <section>
+          <h2>¿Qué monitorizar/alertar?</h2>
+          <ul>
+            <li class="fragment">Sistema</li>
+            <li class="fragment">Programa en ejecución</li>
+            <li class="fragment">Tendencias</li>
+            <li class="fragment">Aplicación</li>
+            <li class="fragment">Logging</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2>Ventajas</h2>
+
+          <ul>
+            <li class="fragment">Obtener datos de lo monitorizado</li>
+            <li class="fragment">Comparar con datos anteriores</li>
+            <li class="fragment">Comparar con otras máquinas/programas</li>
+            <li class="fragment">Previsión de recursos</li>
+            <li class="fragment">Ahorro de costes</li>
+            <li class="fragment">Detección precoz de problemas</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Programas</h2>
+
+          <ul>
+            <li class="fragment"><b>Nagios, Pandora</b>: Sistema</li>
+            <li class="fragment"><b>Zabbix</b>: Sistema (monitorización)</li>
+            <li class="fragment"><b>Munin</b>: Sistema</li>
+            <li class="fragment"><b>New Relic</b>: SaaS (pago)</li>
+            <li class="fragment"><b>Graphite</b>: Monitorización</li>
+            <li class="fragment"><b>Sensu</b>: Alertados</li>
+            <li class="fragment"><b>Grafana</b>: IDE</li>
+            <li class="fragment"><b>FlapJack</b>: Enrutado de alertas</li>
+            <li class="fragment"><b>PagerDuty</b>: Enrutado de alertas (SaaS)</li>
+            <li class="fragment"><b>Sentry</b>: Agrupador de logs</li>
+            <li class="fragment"><b>RSyslog/Logstash/ElasticSearch</b>: Agrupación de logs de sistema</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Hoy</h2>
+
+          <ul>
+            <li class="fragment">Munin</li>
+            <li class="fragment">Graphite</li>
+            <li class="fragment">Grafana</li>
+            <li class="fragment">Sensu</li>
+            <li class="fragment">Sentry</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Munin</h2>
+
+          <ul>
+            <li>Perl</li>
+            <li>Sencillo</li>
+            <li>RRD</li>
+            <li>Estático en /var/cache/munin/www</li>
+          </ul>
+
+          <pre>
+# apt-get install munin munin-node
+# munin-node-configure --suggest --remove-also --shell | bash
+          </pre>
+        </section>
+
+        <section data-background="images/munin.png">
+        </section>
+
+
+        <section>
+          <h2>Graphite</h2>
+
+          <ul>
+            <li>Python/Django</li>
+            <li>API web</li>
+            <li>Whisper (evolución de RRD</li>
+            <li>Soporta eventos discretos</li>
+          </ul>
+
+          <pre>
+# apt-get install graphite-web
+          </pre>
+        </section>
+
+
+        <section>
+          <h2>Grafana</h2>
+
+          <ul>
+            <li>IDE para Graphite</li>
+            <li>Muy muy molón y configurable</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Sensu</h2>
+          <ul>
+            <li>Solo alertas</li>
+            <li>Pero puede incluir gráficas de Graphite/Grafana</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Sentry</h2>
+
+          <ul>
+            <li>API "Raven"</li>
+            <li>Ideal para configurar un <b>handler</b> del <b>logger</b>. </li>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="lib/highlight/src/highlight.js"></script>
+    <script src="lib/reveal.js/js/reveal.min.js"></script>
+    <script type="text/javascript">
+      Reveal.initialize({
+      	// Display controls in the bottom right corner
+      	controls: false,
+      	// Display a presentation progress bar
+      	progress: true,
+      	// Display the page number of the current slide
+      	slideNumber: true,
+      	// Push each slide change to the browser history
+      	history: true,
+      	// Enable keyboard shortcuts for navigation
+      	keyboard: true,
+      	// Enable the slide overview mode
+      	overview: true,
+      	// Vertical centering of slides
+      	center: true,
+      	// Enables touch navigation on devices with touch input
+      	touch: true,
+      	// Loop the presentation
+      	loop: false,
+      	// Change the presentation direction to be RTL
+      	rtl: false,
+      	// Turns fragments on and off globally
+      	fragments: true,
+      	// Flags if the presentation is running in an embedded mode,
+      	// i.e. contained within a limited portion of the screen
+      	embedded: true,
+      	// Number of milliseconds between automatically proceeding to the
+      	// next slide, disabled when set to 0, this value can be overwritten
+      	// by using a data-autoslide attribute on your slides
+      	autoSlide: 0,
+      	// Stop auto-sliding after user input
+      	autoSlideStoppable: true,
+      	// Enable slide navigation via mouse wheel
+      	mouseWheel: false,
+      	// Hides the address bar on mobile devices
+      	hideAddressBar: true,
+      	// Opens links in an iframe preview overlay
+      	previewLinks: true,
+      	// Transition style
+      	transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+      	// Transition speed
+      	transitionSpeed: 'default', // default/fast/slow
+      	// Transition style for full page slide backgrounds
+      	backgroundTransition: 'default', // default/none/slide/concave/convex/zoom
+      	// Number of slides away from the current that are visible
+      	viewDistance: 3,
+      	// Parallax background image
+      	parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+      	// Parallax background size
+      	parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+      });
+    </script>
+  </body>
+</html>
