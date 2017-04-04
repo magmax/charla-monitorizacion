@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  munin:
+    image: buildfailure/munin-server
+    ports:
+      - 10000:8080
+    environment:
+      - "MUNIN_USER=guest"
+      - "MUNIN_PASSWORD=guest"
+      - "NODES=node01:localhost"

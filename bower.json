@@ -1,10 +1,10 @@
 {
-  "name": "charla_cigen",
+  "name": "charla_monitorizacion2",
   "version": "0.0.0",
   "authors": [
     "Miguel Angel Garcia <miguelangel.garcia@gmail.com>"
   ],
-  "description": "Charla sobre Travisificación",
+  "description": "Charla sobre Monitorización y alertado",
   "main": "index.html",
   "license": "Private",
   "private": true,
@@ -16,7 +16,11 @@
     "tests"
   ],
   "dependencies": {
-    "reveal.js": "~2.6.0",
-    "highlight": "~7.0.0"
+    "reveal.js": "~2.6.2",
+    "highlight": "~9.5.0",
+    "lodash": "3.10.1",
+    "backbone": "1.2.1",
+    "jointjs": "0.9.6",
+    "jquery": "2.0.3"
   }
 }

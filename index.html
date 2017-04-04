@@ -1,11 +1,25 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <title>Monitorización y alertado</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/reveal.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/css/theme/moon.min.css" id="theme"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/0.9.10/joint.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/reveal.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/css/theme/serif.css" id="theme"/>
+    <style>
+      body{
+          background-image: url("images/heartbeat.png");
+          background-position: center left;
+      }
+      .kbd {
+      font-family: monospace;
+      background-color: #000;
+      color: #0f0;
+      padding-left: 10px;
+      padding-right: 10px;
+      }
+    </style>
   </head>
 
   <body>
@@ -28,10 +42,16 @@
             <li class="fragment">Programa en ejecución</li>
             <li class="fragment">Tendencias</li>
             <li class="fragment">Aplicación</li>
-            <li class="fragment">Logging</li>
+            <li class="fragment">Logs</li>
           </ul>
         </section>
 
+        <section>
+            <h2>Arquitectura de aplicaciones</h2>
+            <video width="640" height="480" controls loop data-autoplay>
+                  <source src="images/microservices.mp4" type="video/mp4">
+            </video>
+        </section>
 
         <section>
           <h2>Ventajas</h2>
@@ -47,32 +67,87 @@
         </section>
 
         <section>
+            <h2>Arquitectura general</h2>
+
+            <img src="images/flow.png" style="border: none; box-shadow: none"></img>
+        </section>
+
+        <section>
+            <h2>Tipos de datos</h2>
+
+            <ul>
+                <li class="fragment">Numéricos:
+                    <ul>
+                        <li>Visitas por página</li>
+                        <li>Usuarios activos</li>
+                    </ul>
+                </li>
+                <li class="fragment">Textuales:
+                    <ul>
+                        <li>Mensajes de error</li>
+                    </ul>
+                </li>
+                <li class="fragment">Agrupados:
+                    <ul>
+                        <li>Queries lanzadas por una request</li>
+                        <li>Accesos a disco por operación</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        
+        
+        <section>
+            <h2>Tipos de datos</h2>
+
+            <ul>
+                <li class="fragment">Contínuos:
+                    <ul>
+                        <li>Consumo de CPU/RAM</li>
+                    </ul>
+                </li>
+                <li class="fragment">Discretos:
+                    <ul>
+                        <li>Mensajes de error</li>
+                        <li>Subida a producción</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="fragment">Cuidado, porque los discretos pueden cambiar a contínuos:
+            <ul>
+                <li class="fragment">Visitas a una página web</li>
+            </ul>
+            </p>
+        </section>
+
+        <section>
+            <h2>Problemas</h2>
+
+            <ul>
+                <li class="fragment">Espacio</li>
+                <li class="fragment">I/O</li>
+                <li class="fragment">Red</li>
+                <li class="fragment">Principio de incertidumbre de Heisenberg<br/>
+                    <img src="images/heisenberg.png" style="width:200px; border: none; box-shadow: none"></img>
+                </li>
+            </ul>
+        </section>
+
+
+        <section>
           <h2>Programas</h2>
 
           <ul>
-            <li class="fragment"><b><a href="https://www.nagios.org/">Nagios</a>, <a href="http://pandorafms.com/">Pandora</a></b>: Sistema</li>
-            <li class="fragment"><b><a href="http://www.zabbix.com/">Zabbix</a></b>: Sistema (monitorización)</li>
             <li class="fragment"><b><a href="http://munin-monitoring.org/">Munin</a></b>: Sistema</li>
+            <li class="fragment"><b><a href="http://www.zabbix.com/">Zabbix</a></b>: Sistema (monitorización)</li>
+            <li class="fragment"><b><a href="https://www.nagios.org/">Nagios</a>/<a href="https://www.icinga.com/">Icinga</a>, <a href="http://pandorafms.com/">Pandora</a></b>: Sistema</li>
             <li class="fragment"><b><a href="http://newrelic.com/">New Relic</a></b>: SaaS (pago)</li>
             <li class="fragment"><b><a href="https://github.com/graphite-project/graphite-web">Graphite</a></b>: Monitorización</li>
             <li class="fragment"><b><a href="http://grafana.org/">Grafana</a></b>: IDE</li>
             <li class="fragment"><b><a href="https://sensuapp.org/">Sensu</a></b>: Alertados</li>
-            <li class="fragment"><b><a href="http://flapjack.io/">FlapJack</a></b>: Enrutado de alertas</li>
             <li class="fragment"><b><a href="https://www.pagerduty.com/">PagerDuty</a></b>: Enrutado de alertas (SaaS)</li>
             <li class="fragment"><b><a href="https://getsentry.com/welcome/">Sentry</a></b>: Agrupador de logs</li>
             <li class="fragment"><b><a href="http://www.rsyslog.com/">RSyslog</a>/<a href="https://www.elastic.co/products/logstash">Logstash</a>/<a href="https://www.elastic.co/products/elasticsearch">ElasticSearch</a></b>: Agrupación de logs de sistema</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Hoy</h2>
-
-          <ul>
-            <li class="fragment">Munin</li>
-            <li class="fragment">Graphite</li>
-            <li class="fragment">Grafana</li>
-            <li class="fragment">Sensu</li>
-            <li class="fragment">Sentry</li>
           </ul>
         </section>
 
@@ -93,7 +168,29 @@
           </pre>
         </section>
 
-        <section data-background="images/munin.png">
+        <section>
+            <h2>Munin</h2>
+            <p>Usando docker-compose:</p>
+            <pre><code data-trim data-noescape>
+version: "3"
+
+services:
+  munin:
+    image: buildfailure/munin-server
+    ports:
+      - 10000:8080
+    environment:
+      - "MUNIN_USER=guest"
+      - "MUNIN_PASSWORD=guest"
+      - "NODES=node01:localhost"
+            </code></pre>
+            <p>Y el servidor estará en http://localhost:10000</p>
+            <p>(necesita 5 minutos para calentar)</p>
+        </section>
+
+        <section>
+            <h2>Munin</h2>
+            <img src="images/munin.png"></a>
         </section>
 
 
@@ -103,7 +200,7 @@
           <ul>
             <li>Python/Django</li>
             <li>API web</li>
-            <li>Whisper (evolución de RRD</li>
+            <li>Whisper (evolución de RRD)</li>
             <li>Soporta eventos discretos</li>
             <li>Permite graficar cualquier cosa basada en tiempo</li>
           </ul>
@@ -113,7 +210,9 @@
           </pre>
         </section>
 
-        <section data-background="images/graphite.png">
+        <section>
+            <h2>Graphite</h2>
+            <img src="images/graphite.png"></img>
         </section>
 
 
@@ -127,105 +226,249 @@
           </ul>
         </section>
 
-        <section data-background="images/grafana.png">
+        <section>
+            <h2>Grafana</h2>
+            <img src="images/grafana.png"></img>
         </section>
 
         <section>
-          <h2>Sensu</h2>
-          <ul>
-            <li>Ruby</li>
-            <li>Comunicación mediante RabbitMQ</li>
-            <li>Solo backend. El frontend es Uchiwa.</li>
-            <li>Solo alertas</li>
-            <li>Pero se puede combinar con Graphite/Grafana</li>
-          </ul>
-        </section>
+            <h2>Graphite y Grafana</h2>
+            <pre><code data-trim data-noescape>
+version: "3"
 
-        <section data-background="images/uchiwa.png">
+services:
+  graphite:
+    image: sitespeedio/graphite
+    ports:
+      - 10010:80
+  diamond:
+    image: lesaux/diamond-containercollector
+    environment:
+      - GRAPHITE_HOST=graphite
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 10011:3000
+            </code></pre>
+            <p>Load the dashboard "43"</p>
         </section>
 
         <section>
           <h2>Sentry</h2>
 
           <ul>
-            <li>Python/Django</li>
-            <li>API Rest accesible con la librería "Raven"</li>
-            <li>Monitorización de aplicaciones, ya que agrupa logs</li>
-            <li>Lo ideal es configurar un <b>handler</b> del <b>logger</b>. </li>
+            <li class="fragment">Python/Django</li>
+            <li class="fragment">API Rest accesible con la librería "Raven"</li>
+            <li class="fragment">Monitorización de aplicaciones, ya que agrupa logs</li>
+            <li class="fragment">Lo fácil es configurar un <b>handler</b> del <b>logger</b>, pero se pierde información. </li>
+            <li class="fragment">Para sacarle partido es necesario tener cuidado al enviar los mensajes.</li>
           </ul>
         </section>
 
-        <section data-background="images/sentry.png">
+        <section>
+            <h2>Sentry</h2>
+            <img src="images/sentry.png"></img>
         </section>
 
+        <section>
+            <h2>Sentry</h2>
+            <pre><code data-trim data-noescape>
+version: "3"
+services:
+  redis:
+    image: redis
+
+  postgres:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_USER:sentry
+      - POSTGRES_PASSWORD:sentry
+
+  sentry_upgrader:
+    image: sentry:8.14
+    env_file:
+      sentry.env
+    command: "sentry upgrade"
+
+  web:
+    image: sentry:8.14
+    depends_on:
+      - redis
+      - postgres
+    env_file:
+      sentry.env
+    ports:
+      - 10020:9000
+
+  worker:
+    image: sentry:8.14
+    depends_on:
+      - redis
+      - postgres
+    env_file:
+      sentry.env
+    command: "sentry run worker"
+
+  beat:
+    image: sentry:8.14
+    depends_on:
+      - redis
+      - postgres
+    env_file:
+      sentry.env
+    command: "sentry run cron"
+            </code></data>
+        </section>
+
+        <section>
+            <h2>ELK + beats</h2>
+            <ul>
+                <li class="fragment">ElasticSearch + Logstash + Kibana
+                <li class="fragment">No es libre, pero tiene versión community</li>
+                <li class="fragment">Realmente se pueden usar por separado</li>
+                <li class="fragment">Muy útil para logs</li>
+                <li class="fragment">Java + JRuby</li>
+                <li class="fragment">Beats en Go, muy optimizados</li>
+            </ul>
+        </section>
+
+        <section>
+            <img src="images/kibana.png"></img>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape>
+version: "3"
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.3.0
+    ports:
+      - 10030:9200
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+  kibana:
+    image: docker.elastic.co/kibana/kibana:5.3.0
+    ports:
+      - 10031:5601
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+  metricbeat:
+    image: athieriot/metricbeat:5.3.0
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    volumes:
+      - "./metricbeat.yml:/metricbeat/metricbeat.yml"
+  topbeat:
+    image: prima/filebeat:5.2
+    volumes:
+      - "./filebeat.yml:/filebeat.yml"
+      </code></pre>
+        </section>
+
+        <section>
+            <h2>TICK Stack</h2>
+
+            <ul>
+                <li>Software libre: MIT license</li>
+                <li>Go</li>
+                <li>4 componentes:
+                    <ul>
+                        <li>Telegraf</li>
+                        <li>Influxdb</li>
+                        <li>Chronograf</li>
+                        <li>Kapacitor</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>TICK Stack</h2>
+            <img src="images/tickstack_arch.png"></img>
+        </section>
+
+        <section>
+            <h2>TICK Stack</h2>
+            <img src="images/tickstack.png"></img>
+        </section>
+
+        <section>
+            <h2>TICK Stack</h2>
+            <p>Toda la información para levantarlo con docker en su repositorio:<br/>
+            <a href="https://github.com/influxdata/TICK-docker/">https://github.com/influxdata/TICK-docker/</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Otros sistemas de monitorización</h2>
+            <ul>
+                <li class="fragment"><a href="https://newrelic.com">New relic</li>
+                <li class="fragment"><a href="https://www.thousandeyes.com/">ThousandEyes</a></li>
+                <li class="fragment"><a href="https://www.appinsights.com/">AppInsights</li>
+                <li class="fragment"><a href="https://www.datadoghq.com/">Datadog</li>
+                <li class="fragment"><a href="https://www.pagerduty.com/">Pagerduty</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Resumiendo</h2>
+            <ul>
+                <li class="fragment">Hemos visto 5 sistemas de monitorización diferentes:
+                    <ul>
+                        <li>Munin</li>
+                        <li>Graphite/Grafana</li>
+                        <li>Sentry</li>
+                        <li>ELK</li>
+                        <li>TICK Stack</li>
+                    </ul>
+                </li>
+                <li class="fragment">Cada uno tiene puntos fuertes</li>
+                <li class="fragment">No hay excusa para no monitorizar</li>
+            </ul>
+        </section>
+
+        <section data-background="images/preguntas.jpg">
+            <h1 style="background-color:#fff">Preguntas</h1>
+        </section>
+        
         <section>
           <h2>Créditos</h2>
           <ul>
             <li>Miguel Ángel García</li>
             <li>Twitter: <a href="https://twitter.com/magmax9">@magmax9</a> </li>
             <li>Blog: <a href="http://magmax.org">http://magmax.org</a> </li>
+            <li>Esta presentación: <a href="http://magmax.org/charla-monitorizacion/">http://magmax.org/charla-monitorizacion</a></li>
+            <li>Código fuente: <a href="https://github.com/magmax/charla-monitorizacion">https://github.com/magmax/charla-monitorizacion</a></li>
+
           </ul>
+          <img src="images/gracias.png" style="border: none; shadow-box: none;"></img>
         </section>
 
         <section>
-          <p>Descarga esta presentación en <a href="https://github.com/magmax/charla-monitorizacion">https://github.com/magmax/charla-monitorizacion</a> </p>
+            <p>Descarga esta presentación en </p>
+            <p><a href="http://magmax.org/charla-monitorizacion2">http://magmax.org/charla-monitorizacion2</a> </p>
         </section>
       </div>
     </div>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.1.0/js/reveal.min.js"></script>
+	    
+	    
+	    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript">
       Reveal.initialize({
-      	// Display controls in the bottom right corner
-      	controls: false,
-      	// Display a presentation progress bar
-      	progress: true,
-      	// Display the page number of the current slide
-      	slideNumber: true,
-      	// Push each slide change to the browser history
-      	history: true,
-      	// Enable keyboard shortcuts for navigation
-      	keyboard: true,
-      	// Enable the slide overview mode
-      	overview: true,
-      	// Vertical centering of slides
-      	center: true,
-      	// Enables touch navigation on devices with touch input
-      	touch: true,
-      	// Loop the presentation
-      	loop: false,
-      	// Change the presentation direction to be RTL
-      	rtl: false,
-      	// Turns fragments on and off globally
-      	fragments: true,
-      	// Flags if the presentation is running in an embedded mode,
-      	// i.e. contained within a limited portion of the screen
-      	embedded: true,
-      	// Number of milliseconds between automatically proceeding to the
-      	// next slide, disabled when set to 0, this value can be overwritten
-      	// by using a data-autoslide attribute on your slides
-      	autoSlide: 0,
-      	// Stop auto-sliding after user input
-      	autoSlideStoppable: true,
-      	// Enable slide navigation via mouse wheel
-      	mouseWheel: false,
-      	// Hides the address bar on mobile devices
-      	hideAddressBar: true,
-      	// Opens links in an iframe preview overlay
-      	previewLinks: true,
-      	// Transition style
-      	transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
-      	// Transition speed
-      	transitionSpeed: 'default', // default/fast/slow
-      	// Transition style for full page slide backgrounds
-      	backgroundTransition: 'default', // default/none/slide/concave/convex/zoom
-      	// Number of slides away from the current that are visible
-      	viewDistance: 3,
-      	// Parallax background image
-      	parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
-      	// Parallax background size
-      	parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+        history: true,
+        progress: true,
+        dependencies: [
+            { src: 'lib/highlight/src/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true }
+         ]
       });
     </script>
+
   </body>
 </html>
