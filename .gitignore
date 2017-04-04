@@ -2,3 +2,4 @@ lib/
 data/
 venv/
 *.swp
+TICK-docker/
