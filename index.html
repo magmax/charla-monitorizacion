@@ -120,46 +120,32 @@
             </p>
         </section>
 
-        <section>
-            <h2>Problemas</h2>
+        <section data-background="images/homer-crazy.png">
+		<div style="background-color:#fff; opacity:0.8">
+			<h2>Problemas</h2>
 
-            <ul>
-                <li class="fragment">Espacio</li>
-                <li class="fragment">I/O</li>
-                <li class="fragment">Red</li>
-                <li class="fragment">Principio de incertidumbre de Heisenberg<br/>
-                    <img src="images/heisenberg.png" style="width:200px; border: none; box-shadow: none"></img>
-                </li>
-            </ul>
+			<ul>
+				<li class="fragment">Espacio</li>
+				<li class="fragment">I/O</li>
+				<li class="fragment">Red</li>
+				<li class="fragment">Principio de incertidumbre de Heisenberg<br/>
+					<img src="images/heisenberg.png" style="width:200px; border: none; box-shadow: none"></img>
+				</li>
+			</ul>
+		</div>
         </section>
 
 
         <section>
-          <h2>Programas</h2>
+            <h2>Munin</h2>
+            <img src="images/munin_logo.png" style="width:100px"></img>
 
           <ul>
-            <li class="fragment"><b><a href="http://munin-monitoring.org/">Munin</a></b>: Sistema</li>
-            <li class="fragment"><b><a href="http://www.zabbix.com/">Zabbix</a></b>: Sistema (monitorización)</li>
-            <li class="fragment"><b><a href="https://www.nagios.org/">Nagios</a>/<a href="https://www.icinga.com/">Icinga</a>, <a href="http://pandorafms.com/">Pandora</a></b>: Sistema</li>
-            <li class="fragment"><b><a href="http://newrelic.com/">New Relic</a></b>: SaaS (pago)</li>
-            <li class="fragment"><b><a href="https://github.com/graphite-project/graphite-web">Graphite</a></b>: Monitorización</li>
-            <li class="fragment"><b><a href="http://grafana.org/">Grafana</a></b>: IDE</li>
-            <li class="fragment"><b><a href="https://sensuapp.org/">Sensu</a></b>: Alertados</li>
-            <li class="fragment"><b><a href="https://www.pagerduty.com/">PagerDuty</a></b>: Enrutado de alertas (SaaS)</li>
-            <li class="fragment"><b><a href="https://getsentry.com/welcome/">Sentry</a></b>: Agrupador de logs</li>
-            <li class="fragment"><b><a href="http://www.rsyslog.com/">RSyslog</a>/<a href="https://www.elastic.co/products/logstash">Logstash</a>/<a href="https://www.elastic.co/products/elasticsearch">ElasticSearch</a></b>: Agrupación de logs de sistema</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Munin</h2>
-
-          <ul>
-            <li>Perl</li>
-            <li>Sencillo</li>
-            <li>RRD</li>
-            <li>Estático en /var/cache/munin/www</li>
-            <li>Ideal para monitorizar rápidamente el sistema</li>
+              <li class="fragment">Perl</li>
+              <li class="fragment">Sencillo</li>
+              <li class="fragment">RRD</li>
+              <li class="fragment">Estático en /var/cache/munin/www</li>
+              <li class="fragment">Ideal para monitorizar rápidamente el sistema</li>
           </ul>
 
           <pre>
@@ -218,7 +204,7 @@ services:
 
         <section>
           <h2>Grafana</h2>
-
+          <img src="https://gitlab.com/uploads/project/avatar/928825/grafana_icon.png" style="width:100px"></img>
           <ul>
             <li>Go</li>
             <li>IDE para Graphite</li>
@@ -255,7 +241,6 @@ services:
 
         <section>
           <h2>Sentry</h2>
-
           <ul>
             <li class="fragment">Python/Django</li>
             <li class="fragment">API Rest accesible con la librería "Raven"</li>
@@ -263,6 +248,7 @@ services:
             <li class="fragment">Lo fácil es configurar un <b>handler</b> del <b>logger</b>, pero se pierde información. </li>
             <li class="fragment">Para sacarle partido es necesario tener cuidado al enviar los mensajes.</li>
           </ul>
+          <img src="images/sentry_logo.png" style="width:200px"></img>
         </section>
 
         <section>
@@ -330,6 +316,7 @@ services:
                 <li class="fragment">Java + JRuby</li>
                 <li class="fragment">Beats en Go, muy optimizados</li>
             </ul>
+            <img src="images/elastic-logo.svg" style="width:300px"></img>
         </section>
 
         <section>
@@ -371,17 +358,18 @@ services:
             <h2>TICK Stack</h2>
 
             <ul>
-                <li>Software libre: MIT license</li>
-                <li>Go</li>
-                <li>4 componentes:
+                <li class="fragment">Software libre: MIT license</li>
+                <li class="fragment">Go</li>
+                <li class="fragment">4 componentes:
                     <ul>
-                        <li>Telegraf</li>
-                        <li>Influxdb</li>
-                        <li>Chronograf</li>
-                        <li>Kapacitor</li>
+                        <li class="fragment">Telegraf</li>
+                        <li class="fragment">Influxdb</li>
+                        <li class="fragment">Chronograf</li>
+                        <li class="fragment">Kapacitor</li>
                     </ul>
                 </li>
             </ul>
+            <img src="images/influx-logo.jpg" style="width:100px"></img>
         </section>
 
         <section>
@@ -409,6 +397,7 @@ services:
                 <li class="fragment"><a href="https://www.appinsights.com/">AppInsights</li>
                 <li class="fragment"><a href="https://www.datadoghq.com/">Datadog</li>
                 <li class="fragment"><a href="https://www.pagerduty.com/">Pagerduty</a></li>
+		<li class="fragment"><a href="http://www.sysdig.org/">http://www.sysdig.org/</a></li>
             </ul>
         </section>
 
@@ -446,10 +435,6 @@ services:
           <img src="images/gracias.png" style="border: none; shadow-box: none;"></img>
         </section>
 
-        <section>
-            <p>Descarga esta presentación en </p>
-            <p><a href="http://magmax.org/charla-monitorizacion2">http://magmax.org/charla-monitorizacion2</a> </p>
-        </section>
       </div>
     </div>
 
